@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>James' Tic-tac-to</title>
-    <link rel="stylesheet" href="index.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-</head>
-<body>
- <header>
-    <h1>Tic-Tac-To</h1>
-    <nav>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Tic-Tac-To</h1>
+      <nav>
         <button id="restart">Restart</button>
         <button id="twoPlayer">Play with 2 players</button>
         <button id="onePlayer">Play with AI</button>
-    </nav>
- </header>
- <main>
-    <table>
-    <tr></tr>
-        <td>x</td>
-        <td>o</td>
-        <td>x</td>
-    <tr></tr>
-        <td>x</td>
-        <td>o</td>
-        <td>x</td>
-    <tr></tr>
-        <td>x</td>
-        <td>o</td>
-        <td>x</td>
-    </table>
- </main>
-    
- <script src="index.js"></script>   
-</body>
+      </nav>
+    </header>
+    <main>
+      <h2 id="currentPlayer">Waiting for player</h2>
+
+      <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+      </div>
+      <div>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+      </div>
+      <div>
+        <span>7</span>
+        <span>8</span>
+        <span>9</span>
+      </div>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
 </html>

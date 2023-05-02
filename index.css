@@ -8,6 +8,8 @@ html {
     color: white;
 }
 
+/* header */
+
 header {
     text-align: center;
 }
@@ -18,17 +20,29 @@ nav {
     gap: 20px;
 }
 
+
+/* tic tac to board */
+
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-top: 50px;
-    font-size: 75px;
+   
 }
 
-td {
+div {
+    background-color: black;
+    border: 10px solid black;
+}
+
+span {
     background-color: lightgray;
     width: 100px;
     height: 100px;
-    text-align: center;
     color: red;
+    font-size: 50px;
+    display: inline-block;
+    text-align: center;
 }
