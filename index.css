@@ -3,6 +3,11 @@
     font-family: 'Press Start 2P', cursive;
 }
 
+html {
+    background-color: #222;
+    color: white;
+}
+
 header {
     text-align: center;
 }
@@ -17,9 +22,13 @@ main {
     display: flex;
     justify-content: center;
     margin-top: 50px;
-    font-size: 60px;
+    font-size: 75px;
 }
 
 td {
     background-color: lightgray;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    color: red;
 }
