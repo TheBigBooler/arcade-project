@@ -23,11 +23,36 @@ restart.addEventListener("click", function () {
   cell9.innerText = "";
 });
 
+/*2 player button*/
+let playerOneName
+let playerTwoName
+const twoPlayers = document.getElementById('twoPlayer')
+const currentPlayer = document.getElementById('currentPlayer')
+twoPlayers.addEventListener('click', function(event){
+  playerOneName = prompt('Player 1 name:', 'Player 1');
+  playerTwoName = prompt('Player 2 name:', 'Player 2');
+  currentPlayer.innerText = playerOneName
+})
+
+
 /*player clicks on board to place their marker*/
 const board = document.querySelector("main");
 board.addEventListener("click", function (event) {
   let clicked = event.target;
-  if (clicked.tagName === "SPAN") {
-    clicked.innerText = "X";
+  if (clicked.tagName === "SPAN" && clicked.innerText === '') {
+    if (currentPlayer.innerText == playerOneName) {
+      clicked.innerText = 'X';
+      currentPlayer.innerText = playerTwoName
+    } else { clicked.innerText = 'O';
+    currentPlayer.innerText = playerOneName;
+    }
   }
 });
+
+
+
+/*Alert that AI button doesn't work yet*/
+const onePlayer = document.getElementById('onePlayer')
+onePlayer.addEventListener('click', function(event){
+  alert('Single player currently unavailable')
+})
