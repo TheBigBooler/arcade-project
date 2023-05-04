@@ -52,8 +52,8 @@ function resetBoard(){
   cell9.innerText = "";
   currentPlayer.innerText = 'Waiting for players'
 }
-const restart = document.getElementById("restart");
-restart.addEventListener("click", resetBoard);
+const restartButton = document.getElementById("restart");
+restartButton.addEventListener("click", resetBoard);
 
 
 
@@ -62,3 +62,26 @@ const onePlayer = document.getElementById('onePlayer')
 onePlayer.addEventListener('click', function(event){
   alert('Single player currently unavailable')
 })
+
+
+/*Check for win condition*/
+function checkWinCondition(){
+  function playerOneWin(){
+    alert('Player 1 wins!')
+    gameOver()
+  }
+  function playerTwoWin(){
+    alert('Player 2 Wins!')
+    gameOver()
+  }
+  function gameOver(){
+    alert('Game over!')
+    resetBoard()
+  }
+  /*winning combinations*/
+  if (cell1.innerText == 'X' && cell2.innerText == 'X' && cell3.innerText == 'X' ){
+    playerOneWin()
+  }
+}
+
+
