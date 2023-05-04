@@ -9,19 +9,7 @@ const cell7 = document.getElementById("cell7");
 const cell8 = document.getElementById("cell8");
 const cell9 = document.getElementById("cell9");
 
-/*restart button*/
-const restart = document.getElementById("restart");
-restart.addEventListener("click", function () {
-  cell1.innerText = "";
-  cell2.innerText = "";
-  cell3.innerText = "";
-  cell4.innerText = "";
-  cell5.innerText = "";
-  cell6.innerText = "";
-  cell7.innerText = "";
-  cell8.innerText = "";
-  cell9.innerText = "";
-});
+
 
 /*2 player button*/
 let playerOneName
@@ -29,6 +17,7 @@ let playerTwoName
 const twoPlayers = document.getElementById('twoPlayer')
 const currentPlayer = document.getElementById('currentPlayer')
 twoPlayers.addEventListener('click', function(event){
+  resetBoard()
   playerOneName = prompt('Player 1 name:', 'Player 1');
   playerTwoName = prompt('Player 2 name:', 'Player 2');
   currentPlayer.innerText = playerOneName
@@ -43,11 +32,28 @@ board.addEventListener("click", function (event) {
     if (currentPlayer.innerText == playerOneName) {
       clicked.innerText = 'X';
       currentPlayer.innerText = playerTwoName
-    } else { clicked.innerText = 'O';
+    } else  if (currentPlayer.innerText == playerTwoName)
+    { clicked.innerText = 'O';
     currentPlayer.innerText = playerOneName;
     }
   }
 });
+
+/*restart button*/
+function resetBoard(){
+  cell1.innerText = "";
+  cell2.innerText = "";
+  cell3.innerText = "";
+  cell4.innerText = "";
+  cell5.innerText = "";
+  cell6.innerText = "";
+  cell7.innerText = "";
+  cell8.innerText = "";
+  cell9.innerText = "";
+  currentPlayer.innerText = 'Waiting for players'
+}
+const restart = document.getElementById("restart");
+restart.addEventListener("click", resetBoard);
 
 
 
