@@ -37,6 +37,7 @@ board.addEventListener("click", function (event) {
     currentPlayer.innerText = playerOneName;
     }
   }
+  checkWinCondition()
 });
 
 /*restart button*/
@@ -68,19 +69,23 @@ onePlayer.addEventListener('click', function(event){
 function checkWinCondition(){
   function playerOneWin(){
     alert('Player 1 wins!')
-    gameOver()
   }
   function playerTwoWin(){
     alert('Player 2 Wins!')
-    gameOver()
   }
   function gameOver(){
-    alert('Game over!')
-    resetBoard()
+    let replay = confirm("Would you like to play again with the same players?")
+    if (replay) {
+      resetBoard()
+      currentPlayer.innerText = playerOneName 
+    } else {
+      resetBoard()
+    }
   }
   /*winning combinations*/
   if (cell1.innerText == 'X' && cell2.innerText == 'X' && cell3.innerText == 'X' ){
     playerOneWin()
+    gameOver()
   }
 }
 
