@@ -57,17 +57,25 @@ span {
 
 @media (max-width: 700px) {
     span {
-        width: 100px;
-        height: 100px;
+        width: 130px;
+        height: 130px;
+        font-size: 80px;
     }
 
     div {
         gap: 10px;
         border: 5px solid black;
-    }    
+    }   
+
 }
 
 @media (max-width: 450px){
+    span {
+        width: 95px;
+        height: 95px;
+        font-size: 75px;
+    }
+    
     nav {
         flex-direction: column;
         align-items: center;

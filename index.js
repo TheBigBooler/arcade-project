@@ -130,7 +130,12 @@ function checkWinCondition(){
   if (cell7.innerText == 'O' && cell8.innerText == 'O' && cell9.innerText == 'O' ){
     playerTwoWin()
   }
-
+  /*all spaces are occupied and no winning combos are in play, results in a tie*/
+  if (cell1.innerText !== '' && cell2.innerText !== '' && cell3.innerText !== '' && 
+    cell4.innerText !== '' && cell5.innerText !== '' && cell6.innerText !== '' && 
+    cell7.innerText !== '' && cell8.innerText !== '' && cell9.innerText !== '') {
+      currentPlayer.innerText = "It's a tie!"
+    }
 }
 
 /*Option to play again with same player names */
@@ -151,4 +156,6 @@ const onePlayer = document.getElementById('onePlayer')
 onePlayer.addEventListener('click', function(event){
   alert('Single player currently unavailable')
 })
+
+
 
