@@ -68,12 +68,20 @@ onePlayer.addEventListener('click', function(event){
 /*Check for win condition*/
 function checkWinCondition(){
   function playerOneWin(){
-    alert('Player 1 wins!')
+    currentPlayer.innerText = 'Player 1 wins!'
   }
   function playerTwoWin(){
-    alert('Player 2 Wins!')
+    currentPlayer.innerText = 'Player 2 Wins!'
   }
-  function gameOver(){
+  
+  /*winning combinations*/
+  if (cell1.innerText == 'X' && cell2.innerText == 'X' && cell3.innerText == 'X' ){
+    playerOneWin()
+  }
+}
+
+/*Option to play again with same player names */
+function replay(){
     let replay = confirm("Would you like to play again with the same players?")
     if (replay) {
       resetBoard()
@@ -82,11 +90,3 @@ function checkWinCondition(){
       resetBoard()
     }
   }
-  /*winning combinations*/
-  if (cell1.innerText == 'X' && cell2.innerText == 'X' && cell3.innerText == 'X' ){
-    playerOneWin()
-    gameOver()
-  }
-}
-
-
