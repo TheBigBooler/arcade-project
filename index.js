@@ -29,6 +29,7 @@ const twoPlayers = document.getElementById('twoPlayer')
 const currentPlayer = document.getElementById('currentPlayer')
 twoPlayers.addEventListener('click', function(event){
   if (playerOneName && playerTwoName !== undefined){
+    resetBoard()
     replay()
   } else {
     resetBoard()
@@ -47,7 +48,7 @@ board.addEventListener("click", function (event) {
     if (currentPlayer.innerText == playerOneName) {
       clicked.innerText = 'X';
       currentPlayer.innerText = playerTwoName
-    } else  if (currentPlayer.innerText == playerTwoName)
+    } else if (currentPlayer.innerText == playerTwoName)
     { clicked.innerText = 'O';
     currentPlayer.innerText = playerOneName;
     }
@@ -76,10 +77,10 @@ restartButton.addEventListener("click", resetBoard);
 /*Check for win condition*/
 function checkWinCondition(){
   function playerOneWin(){
-    currentPlayer.innerText = 'Player 1 wins!'
+    currentPlayer.innerText = playerOneName + ' wins!'
   }
   function playerTwoWin(){
-    currentPlayer.innerText = 'Player 2 wins!'
+    currentPlayer.innerText = playerTwoName + ' wins!'
   }
   
   /* player 1 winning combinations*/
@@ -144,7 +145,6 @@ function checkWinCondition(){
 function replay(){
     let replay = confirm("Would you like to play again with the same players?")
     if (replay) {
-      resetBoard()
       choosePlayer()
     } else {
     playerOneName = prompt('Player 1 name:', 'Player 1');
