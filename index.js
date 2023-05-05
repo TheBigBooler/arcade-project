@@ -35,7 +35,11 @@ twoPlayers.addEventListener('click', function(event){
     resetBoard()
     playerOneName = prompt('Player 1 name:', 'Player 1');
     playerTwoName = prompt('Player 2 name:', 'Player 2');
-    choosePlayer()
+    if (playerOneName === null || playerTwoName === null){
+      alert('Please retry and input valid names')
+    } else {
+      choosePlayer()
+    }
   }
 })
 
