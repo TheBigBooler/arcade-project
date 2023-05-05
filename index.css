@@ -52,3 +52,40 @@ span {
     justify-content: center;
     align-items: center;
 }
+
+
+
+@media (max-width: 700px) {
+    span {
+        width: 100px;
+        height: 100px;
+    }
+
+    div {
+        gap: 10px;
+        border: 5px solid black;
+    }    
+}
+
+@media (max-width: 450px){
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        max-width: min-content;
+    }
+
+    main {
+        margin-top: 10px;
+    }
+
+    #currentPlayer {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+}
