@@ -78,10 +78,57 @@ function checkWinCondition(){
     currentPlayer.innerText = 'Player 2 Wins!'
   }
   
-  /*winning combinations*/
+  /* player 1 winning combinations*/
   if (cell1.innerText == 'X' && cell2.innerText == 'X' && cell3.innerText == 'X' ){
     playerOneWin()
   }
+  if (cell1.innerText == 'X' && cell4.innerText == 'X' && cell7.innerText == 'X' ){
+    playerOneWin()
+  }
+  if (cell1.innerText == 'X' && cell5.innerText == 'X' && cell9.innerText == 'X' ){
+    playerOneWin()
+  }
+  if (cell2.innerText == 'X' && cell5.innerText == 'X' && cell8.innerText == 'X' ){
+    playerOneWin()
+  }
+  if (cell3.innerText == 'X' && cell6.innerText == 'X' && cell9.innerText == 'X' ){
+    playerOneWin()
+  }
+  if (cell3.innerText == 'X' && cell5.innerText == 'X' && cell7.innerText == 'X' ){
+    playerOneWin()
+  }
+  if (cell4.innerText == 'X' && cell5.innerText == 'X' && cell6.innerText == 'X' ){
+    playerOneWin()
+  }
+  if (cell7.innerText == 'X' && cell8.innerText == 'X' && cell9.innerText == 'X' ){
+    playerOneWin()
+  }
+  /*player 2 winning combinations */
+  if (cell1.innerText == 'O' && cell2.innerText == 'O' && cell3.innerText == 'O' ){
+    playerTwoWin()
+  }
+  if (cell1.innerText == 'O' && cell4.innerText == 'O' && cell7.innerText == 'O' ){
+    playerTwoWin()
+  }
+  if (cell1.innerText == 'O' && cell5.innerText == 'O' && cell9.innerText == 'O' ){
+    playerTwoWin()
+  }
+  if (cell2.innerText == 'O' && cell5.innerText == 'O' && cell8.innerText == 'O' ){
+    playerTwoWin()
+  }
+  if (cell3.innerText == 'O' && cell6.innerText == 'O' && cell9.innerText == 'O' ){
+    playerTwoWin()
+  }
+  if (cell3.innerText == 'O' && cell5.innerText == 'O' && cell7.innerText == 'O' ){
+    playerTwoWin()
+  }
+  if (cell4.innerText == 'O' && cell5.innerText == 'O' && cell6.innerText == 'O' ){
+    playerTwoWin()
+  }
+  if (cell7.innerText == 'O' && cell8.innerText == 'O' && cell9.innerText == 'O' ){
+    playerTwoWin()
+  }
+
 }
 
 /*Option to play again with same player names */
