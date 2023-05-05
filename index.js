@@ -14,6 +14,14 @@ const cell9 = document.getElementById("cell9");
 /*2 player button*/
 let playerOneName
 let playerTwoName
+function choosePlayer(){
+  let coinFlip = Math.random()
+  if (coinFlip > 0.5) {
+      currentPlayer.innerText = playerOneName
+    } else {
+      currentPlayer.innerText = playerTwoName
+    }
+}
 const twoPlayers = document.getElementById('twoPlayer')
 const currentPlayer = document.getElementById('currentPlayer')
 twoPlayers.addEventListener('click', function(event){
@@ -23,7 +31,7 @@ twoPlayers.addEventListener('click', function(event){
     resetBoard()
     playerOneName = prompt('Player 1 name:', 'Player 1');
     playerTwoName = prompt('Player 2 name:', 'Player 2');
-    currentPlayer.innerText = playerOneName
+    choosePlayer()
   }
 })
 
@@ -60,13 +68,6 @@ function resetBoard(){
 const restartButton = document.getElementById("restart");
 restartButton.addEventListener("click", resetBoard);
 
-
-
-/*Alert that AI button doesn't work yet*/
-const onePlayer = document.getElementById('onePlayer')
-onePlayer.addEventListener('click', function(event){
-  alert('Single player currently unavailable')
-})
 
 
 /*Check for win condition*/
@@ -136,10 +137,17 @@ function replay(){
     let replay = confirm("Would you like to play again with the same players?")
     if (replay) {
       resetBoard()
-      currentPlayer.innerText = playerOneName 
+      choosePlayer()
     } else {
     playerOneName = prompt('Player 1 name:', 'Player 1');
     playerTwoName = prompt('Player 2 name:', 'Player 2');
-    currentPlayer.innerText = playerOneName
+    choosePlayer()
     }
   }
+
+  /*Alert that AI button doesn't work yet*/
+const onePlayer = document.getElementById('onePlayer')
+onePlayer.addEventListener('click', function(event){
+  alert('Single player currently unavailable')
+})
+
