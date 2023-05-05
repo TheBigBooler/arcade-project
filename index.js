@@ -17,10 +17,14 @@ let playerTwoName
 const twoPlayers = document.getElementById('twoPlayer')
 const currentPlayer = document.getElementById('currentPlayer')
 twoPlayers.addEventListener('click', function(event){
-  resetBoard()
-  playerOneName = prompt('Player 1 name:', 'Player 1');
-  playerTwoName = prompt('Player 2 name:', 'Player 2');
-  currentPlayer.innerText = playerOneName
+  if (playerOneName && playerTwoName !== undefined){
+    replay()
+  } else {
+    resetBoard()
+    playerOneName = prompt('Player 1 name:', 'Player 1');
+    playerTwoName = prompt('Player 2 name:', 'Player 2');
+    currentPlayer.innerText = playerOneName
+  }
 })
 
 
@@ -87,6 +91,8 @@ function replay(){
       resetBoard()
       currentPlayer.innerText = playerOneName 
     } else {
-      resetBoard()
+    playerOneName = prompt('Player 1 name:', 'Player 1');
+    playerTwoName = prompt('Player 2 name:', 'Player 2');
+    currentPlayer.innerText = playerOneName
     }
   }
