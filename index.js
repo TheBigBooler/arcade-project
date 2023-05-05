@@ -14,9 +14,11 @@ function choosePlayer(){
   let coinFlip = Math.random()
   if (coinFlip > 0.5) {
       currentPlayer.innerText = playerOneName
+      alert(playerOneName + ' (You are X) goes first')
     } else {
       currentPlayer.innerText = playerTwoName
-    }
+      alert(playerTwoName + ' (You are O) goes first')
+    } 
 }
 
 
@@ -77,7 +79,7 @@ function checkWinCondition(){
     currentPlayer.innerText = 'Player 1 wins!'
   }
   function playerTwoWin(){
-    currentPlayer.innerText = 'Player 2 Wins!'
+    currentPlayer.innerText = 'Player 2 wins!'
   }
   
   /* player 1 winning combinations*/
