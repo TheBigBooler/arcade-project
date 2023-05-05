@@ -9,11 +9,7 @@ const cell7 = document.getElementById("cell7");
 const cell8 = document.getElementById("cell8");
 const cell9 = document.getElementById("cell9");
 
-
-
-/*2 player button*/
-let playerOneName
-let playerTwoName
+/*function that chooses randomly between the 2 players*/
 function choosePlayer(){
   let coinFlip = Math.random()
   if (coinFlip > 0.5) {
@@ -22,6 +18,11 @@ function choosePlayer(){
       currentPlayer.innerText = playerTwoName
     }
 }
+
+
+/*2 player button*/
+let playerOneName
+let playerTwoName
 const twoPlayers = document.getElementById('twoPlayer')
 const currentPlayer = document.getElementById('currentPlayer')
 twoPlayers.addEventListener('click', function(event){
