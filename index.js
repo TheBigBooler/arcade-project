@@ -28,7 +28,7 @@ let playerTwoName
 const twoPlayers = document.getElementById('twoPlayer')
 const currentPlayer = document.getElementById('currentPlayer')
 twoPlayers.addEventListener('click', function(event){
-  if (playerOneName && playerTwoName !== undefined){
+  if (playerOneName && playerTwoName){
     resetBoard()
     replay()
   } else {
@@ -153,10 +153,13 @@ function replay(){
     } else {
     playerOneName = prompt('Player 1 name:', 'Player 1');
     playerTwoName = prompt('Player 2 name:', 'Player 2');
-    choosePlayer()
+    if (playerOneName === null || playerTwoName === null){
+      alert('Please retry and input valid names')
+    } else {
+      choosePlayer()
     }
   }
-
+}
   /*Alert that AI button doesn't work yet*/
 const onePlayer = document.getElementById('onePlayer')
 onePlayer.addEventListener('click', function(event){
