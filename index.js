@@ -92,49 +92,49 @@ function checkWinCondition() {
   ) {
     playerOneWin();
   }
-  if (
-    cell1.innerText == "X" &&
+  else if (
+  cell1.innerText == "X" &&
     cell4.innerText == "X" &&
     cell7.innerText == "X"
   ) {
     playerOneWin();
   }
-  if (
+  else if (
     cell1.innerText == "X" &&
     cell5.innerText == "X" &&
     cell9.innerText == "X"
   ) {
     playerOneWin();
   }
-  if (
+  else if (
     cell2.innerText == "X" &&
     cell5.innerText == "X" &&
     cell8.innerText == "X"
   ) {
     playerOneWin();
   }
-  if (
+  else if (
     cell3.innerText == "X" &&
     cell6.innerText == "X" &&
     cell9.innerText == "X"
   ) {
     playerOneWin();
   }
-  if (
+  else if (
     cell3.innerText == "X" &&
     cell5.innerText == "X" &&
     cell7.innerText == "X"
   ) {
     playerOneWin();
   }
-  if (
+  else if (
     cell4.innerText == "X" &&
     cell5.innerText == "X" &&
     cell6.innerText == "X"
   ) {
     playerOneWin();
   }
-  if (
+  else if (
     cell7.innerText == "X" &&
     cell8.innerText == "X" &&
     cell9.innerText == "X"
@@ -142,56 +142,56 @@ function checkWinCondition() {
     playerOneWin();
   }
   /*player 2 winning combinations */
-  if (
+  else if (
     cell1.innerText == "O" &&
     cell2.innerText == "O" &&
     cell3.innerText == "O"
   ) {
     playerTwoWin();
   }
-  if (
+  else if (
     cell1.innerText == "O" &&
     cell4.innerText == "O" &&
     cell7.innerText == "O"
   ) {
     playerTwoWin();
   }
-  if (
+  else if (
     cell1.innerText == "O" &&
     cell5.innerText == "O" &&
     cell9.innerText == "O"
   ) {
     playerTwoWin();
   }
-  if (
+  else if (
     cell2.innerText == "O" &&
     cell5.innerText == "O" &&
     cell8.innerText == "O"
   ) {
     playerTwoWin();
   }
-  if (
+  else if (
     cell3.innerText == "O" &&
     cell6.innerText == "O" &&
     cell9.innerText == "O"
   ) {
     playerTwoWin();
   }
-  if (
+  else if (
     cell3.innerText == "O" &&
     cell5.innerText == "O" &&
     cell7.innerText == "O"
   ) {
     playerTwoWin();
   }
-  if (
+  else if (
     cell4.innerText == "O" &&
     cell5.innerText == "O" &&
     cell6.innerText == "O"
   ) {
     playerTwoWin();
   }
-  if (
+  else if (
     cell7.innerText == "O" &&
     cell8.innerText == "O" &&
     cell9.innerText == "O"
@@ -199,7 +199,7 @@ function checkWinCondition() {
     playerTwoWin();
   }
   /*all spaces are occupied and no winning combos are in play, results in a tie*/
-  if (
+  else if (
     cell1.innerText !== "" &&
     cell2.innerText !== "" &&
     cell3.innerText !== "" &&
@@ -211,6 +211,8 @@ function checkWinCondition() {
     cell9.innerText !== ""
   ) {
     currentPlayer.innerText = "It's a tie!";
+  } else {
+    return false
   }
 }
 
@@ -277,6 +279,9 @@ function singlePlayerMode(event) {
   let clicked = event.target;
   if (clicked.tagName === "SPAN" && clicked.innerText === "") {
     clicked.innerText = "O";
+    if(checkWinCondition() == false){
     setTimeout(computerPickSquare, 500)
-  } 
+    } else {board.removeEventListener('click', singlePlayerMode);
+    }
+  }  
 }
