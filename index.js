@@ -233,7 +233,7 @@ function replay() {
     playerOneName = prompt("Player 1 name:", "Player 1");
     playerTwoName = prompt("Player 2 name:", "Player 2");
     if (playerOneName === null || playerTwoName === null) {
-      alert("Please retry and input valid names");
+      alert("Please retry and press OK once you have selected a name");
     } else {
       choosePlayer();
     }
@@ -250,9 +250,9 @@ onePlayer.addEventListener("click", function () {
   playerOneName = "";
   playerTwoName = "";
   alert("AI goes first (it's only fair!)");
-  computerPickSquare();
-  currentPlayer.innerText = "Good Luck!";
-  board.addEventListener("click", singlePlayerMode);
+  setTimeout(computerPickSquare, 1000);
+  currentPlayer.innerText = "Thinking...";
+  setTimeout(enableBoard, 1000);
 });
 
 /*Function that chooses random square for AI*/
