@@ -78,12 +78,20 @@ restartButton.addEventListener("click", resetBoard);
 /*Check for win condition*/
 function checkWinCondition() {
   function playerOneWin() {
+    if(playerOneName){
     currentPlayer.innerText = playerOneName + " wins!";
+    } else {
+      currentPlayer.innerText = "You lose!";
+      board.removeEventListener('click', singlePlayerMode)
+    }
   }
   function playerTwoWin() {
+    if(playerTwoName) {
     currentPlayer.innerText = playerTwoName + " wins!";
+    } else {
+      currentPlayer.innerText = "You win!";
+    }
   }
-
   /* player 1 winning combinations*/
   if (
     cell1.innerText == "X" &&
