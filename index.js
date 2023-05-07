@@ -288,8 +288,16 @@ function singlePlayerMode(event) {
   if (clicked.tagName === "SPAN" && clicked.innerText === "") {
     clicked.innerText = "O";
     if(checkWinCondition() == false){
-    setTimeout(computerPickSquare, 500)
+      board.removeEventListener('click', singlePlayerMode)
+      currentPlayer.innerText = 'Thinking...'
+      setTimeout(computerPickSquare, 1000)
+      setTimeout(enableBoard, 1001)
     } else {board.removeEventListener('click', singlePlayerMode);
     }
   }  
+}
+/*fix for exploit to rapidly click on board before AI moves*/
+function enableBoard(){
+  board.addEventListener('click', singlePlayerMode)
+  currentPlayer.innerText = "Make your move"
 }
