@@ -35,11 +35,13 @@ twoPlayers.addEventListener("click", function (event) {
     resetBoard();
     playerOneName = prompt("Player 1 name:", "Player 1");
     playerTwoName = prompt("Player 2 name:", "Player 2");
-    if (playerOneName === null || playerTwoName === null) {
-      alert("Please retry and press OK once you have selected a name");
-    } else {
-      choosePlayer();
+    if (playerOneName === null) {
+      playerOneName = 'Player 1'
     }
+    if (playerTwoName === null) {
+      playerTwoName = 'Player 2'
+    }
+    choosePlayer();
   }
 });
 
@@ -232,13 +234,16 @@ function replay() {
   } else {
     playerOneName = prompt("Player 1 name:", "Player 1");
     playerTwoName = prompt("Player 2 name:", "Player 2");
-    if (playerOneName === null || playerTwoName === null) {
-      alert("Please retry and press OK once you have selected a name");
-    } else {
+    if (playerOneName === null) {
+      playerOneName = 'Player 1'
+    }
+    if (playerTwoName === null) {
+      playerTwoName = 'Player 2'
+    }
       choosePlayer();
     }
   }
-}
+
 
 
 
