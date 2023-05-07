@@ -27,6 +27,7 @@ let playerTwoName;
 const twoPlayers = document.getElementById("twoPlayer");
 const currentPlayer = document.getElementById("currentPlayer");
 twoPlayers.addEventListener("click", function (event) {
+   board.removeEventListener('click', singlePlayerMode)
   if (playerOneName && playerTwoName) {
     resetBoard();
     replay();
@@ -35,7 +36,7 @@ twoPlayers.addEventListener("click", function (event) {
     playerOneName = prompt("Player 1 name:", "Player 1");
     playerTwoName = prompt("Player 2 name:", "Player 2");
     if (playerOneName === null || playerTwoName === null) {
-      alert("Please retry and input valid names");
+      alert("Please retry and press OK once you have selected a name");
     } else {
       choosePlayer();
     }
@@ -54,8 +55,7 @@ board.addEventListener("click", function (event) {
       clicked.innerText = "O";
       currentPlayer.innerText = playerOneName;
     }
-  }
-  checkWinCondition();
+  } checkWinCondition()
 });
 
 /*restart button*/
@@ -70,6 +70,7 @@ function resetBoard() {
   cell8.innerText = "";
   cell9.innerText = "";
   currentPlayer.innerText = "Waiting for players";
+ 
 }
 const restartButton = document.getElementById("restart");
 restartButton.addEventListener("click", resetBoard);
@@ -228,15 +229,20 @@ function replay() {
     }
   }
 }
+
+
+
+
 /*Button that begins a single player game against AI*/
 const onePlayer = document.getElementById("onePlayer");
 onePlayer.addEventListener("click", function () {
   resetBoard();
-  playerOneName = ''
-  playerTwoName = ''
+  playerOneName = "";
+  playerTwoName = "";
   alert("AI goes first (it's only fair!)");
   computerPickSquare();
-  currentPlayer.innerText = 'Good Luck!';
+  currentPlayer.innerText = "Good Luck!";
+  board.addEventListener("click", singlePlayerMode);
 });
 
 /*Function that chooses random square for AI*/
@@ -258,7 +264,19 @@ function computerPickSquare() {
     cell3.innerText = "X";
   } else if (chooseCellNumber > 0.2 && cell2.innerText == "") {
     cell2.innerText = "X";
-  } else {
+  } else if (cell1.innerText == "") {
     cell1.innerText = "X";
+  } else {
+    computerPickSquare();
   }
+  checkWinCondition();
+}
+
+/*Game flow for single player game*/
+function singlePlayerMode(event) {
+  let clicked = event.target;
+  if (clicked.tagName === "SPAN" && clicked.innerText === "") {
+    clicked.innerText = "O";
+    setTimeout(computerPickSquare, 500)
+  } 
 }
