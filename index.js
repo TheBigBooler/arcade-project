@@ -249,10 +249,9 @@ onePlayer.addEventListener("click", function () {
   resetBoard();
   playerOneName = "";
   playerTwoName = "";
-  alert("AI goes first (it's only fair!)");
-  setTimeout(computerPickSquare, 1000);
-  currentPlayer.innerText = "Thinking...";
-  setTimeout(enableBoard, 1000);
+  setTimeout(computerPickSquare, 1500);
+  currentPlayer.innerText = "AI goes first (It's only fair)";
+  setTimeout(enableBoard, 1501);
 });
 
 /*Function that chooses random square for AI*/
@@ -277,12 +276,14 @@ function computerPickSquare() {
   } else if (cell1.innerText == "") {
     cell1.innerText = "X";
   } else {
+    /*loops back over itself if chosen square is occupied*/
     computerPickSquare();
   }
+  currentPlayer.innerText = "Make your move"
   checkWinCondition();
 }
 
-/*Game flow for single player game*/
+/*Game flow for single player game, */
 function singlePlayerMode(event) {
   let clicked = event.target;
   if (clicked.tagName === "SPAN" && clicked.innerText === "") {
@@ -296,8 +297,8 @@ function singlePlayerMode(event) {
     }
   }  
 }
-/*fix for exploit to rapidly click on board before AI moves*/
+/*fix for exploit to rapidly click on board before AI moves utilizing  setTimeout with this function*/
 function enableBoard(){
   board.addEventListener('click', singlePlayerMode)
-  currentPlayer.innerText = "Make your move"
 }
+
